@@ -1,3 +1,6 @@
+let color = 'black'; 
+
+
 //make a function to populate the board with squares of a given size
 function populateBoard(size) {
     let board = document.querySelector('.board');
@@ -27,7 +30,22 @@ function changeSize(input) {
     }
 }
 
-//TODO Function to change the background color of a square to black
+//change the color of the squares
 function colorSquare() {
-    this.style.backgroundColor = 'black';
+    if((color == 'random')) {
+        // Generate a random color using HSL
+        this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    } else {
+        // Set the background color of the square to the selected color
+        this.style.backgroundColor = color;
+    }
+}
+
+function changeColor(input) {
+    color = input;
+}
+
+//TODO add a reset button
+function resetBoard() {
+
 }
