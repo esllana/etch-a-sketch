@@ -6,4 +6,10 @@
     width: 500px;
     height: 500px;
     display: grid;
+    border: 2px solid black;
+}
+
+.buttons {
+    display: flex;
+    margin: 10px 10px 5px 5px;
 }
