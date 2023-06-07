@@ -1,11 +1,11 @@
-let color = 'black'; 
+let color = 'black';  // Set the initial color to black
 
 
 //make a function to populate the board with squares of a given size
 function populateBoard(size) {
-    let board = document.querySelector('.board');
-    let squares = board.querySelectorAll('div');
-    squares.forEach((div) => div.remove());
+    let board = document.querySelector('.board'); // Select the board element
+    let squares = board.querySelectorAll('div'); // Select all the squares on the board
+    squares.forEach((div) => div.remove()); // Remove all the squares from the board
     // Set the grid template columns and rows to create a grid layout
     board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     board.style.gridTemplateRows = `repeat(${size}, 1fr)`;
@@ -41,11 +41,14 @@ function colorSquare() {
     }
 }
 
+//change the color of the squares linked with input html
 function changeColor(input) {
     color = input;
 }
 
-//TODO add a reset button
+//reset the board
 function resetBoard() {
-
+    let board = document.querySelector('.board');
+    let squares = board.querySelectorAll('div');
+    squares.forEach((div) => div.style.backgroundColor = 'white');
 }
