@@ -1,4 +1,5 @@
 let color = 'black';  // Set the initial color to black
+let click = true;  // Set the initial click to true
 
 
 //make a function to populate the board with squares of a given size
@@ -30,14 +31,16 @@ function changeSize(input) {
     }
 }
 
-//change the color of the squares
+//change the color of the square when mouseover. Only active when click is true
 function colorSquare() {
-    if((color == 'random')) {
-        // Generate a random color using HSL
-        this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-    } else {
-        // Set the background color of the square to the selected color
-        this.style.backgroundColor = color;
+    if (click) {
+        if((color == 'random')) {
+            // Generate a random color using HSL
+            this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        } else {
+            // Set the background color of the square to the selected color
+            this.style.backgroundColor = color;
+        }
     }
 }
 
@@ -52,3 +55,15 @@ function resetBoard() {
     let squares = board.querySelectorAll('div');
     squares.forEach((div) => div.style.backgroundColor = 'white');
 }
+
+//change the mode of the board. Prevents button from triggering the function
+document.querySelector('body').addEventListener('click', (e) => {
+    if(e.target.tagName != 'BUTTON') {
+        click = !click;
+        if(click) {
+            document.querySelector('.mode').textContent= 'Mode: Coloring';
+        } else {
+            document.querySelector('.mode').textContent= 'Mode: Not coloring';
+        }
+    }
+});
