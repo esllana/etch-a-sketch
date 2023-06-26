@@ -25,9 +25,10 @@ populateBoard(16);
 //change the size of the board linked with input html
 function changeSize(input) {
     if(input >= 2 && input <= 100) {
+        document.querySelector('.error').style.display = 'none';
         populateBoard(input);
     } else {
-        console.log('Please enter a number between 2 and 100');
+        document.querySelector('.error').style.display = 'flex';
     }
 }
 
