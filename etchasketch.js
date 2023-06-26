@@ -68,3 +68,5 @@ document.querySelector('body').addEventListener('click', (e) => {
         }
     }
 });
+
+// future animations
